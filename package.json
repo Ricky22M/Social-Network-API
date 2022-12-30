@@ -1,7 +1,7 @@
 {
     "name": "Social-Network-API",
     "version": "1.0.0",
-    "description": "Social Network API",
+    "description": "An API web application used to share and interact with other users by posting about their thoughts, reacting to other users' thoughts, and creating a friends list.",
     "main": "server.js",
     "scripts": {
         "start": "node index"
