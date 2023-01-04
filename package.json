@@ -1,14 +1,14 @@
 {
-    "name": "Social-Network-API",
+    "name": "social-network-api",
     "version": "1.0.0",
     "description": "An API web application used to share and interact with other users by posting about their thoughts, reacting to other users' thoughts, and creating a friends list.",
     "main": "server.js",
     "scripts": {
-        "start": "node index"
+        "start": "node server.js"
     },
     "dependencies": {
-        "express": "^4.17.1",
-        "mongoose": "^6.0.13",
+        "express": "^4.18.2",
+        "mongoose": "^6.7.3",
         "moment": "^2.29.4"
     }
 }
