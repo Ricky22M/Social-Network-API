@@ -1,51 +1,40 @@
-const { Schema, model, Types } = require("mongoose");
+const { Schema, model, Types } = require('mongoose');
 
-const userSchema = new Schema (
+const UserSchema = new Schema 
+(
     {
         username: {
             type: String,
-            unique: [true, "This username is already being usef. Please try a different one."],
-            required: [true, "Cannot proceed with an empty username!"],
-            trim: true
+            unique: true,
+            required: true,
+            trim: true,
         },
-
         email: {
-            type: String, 
-            unique: [true, "This email address is already being used. Please try a different one."],
-            required: [true, "Cannot proceed with an empty email address!"],
-            match: [
-                /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                "Enter a valid email address."
-            ]
+            type: String,
+            Required: true,
+            unique: true,
+            match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/]
         },
-
-        thoughts: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "Thought"
-            }
-        ],
-
-        friends: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "User"
-            }
-        ],
+        thoughts: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Thoughts'
+        }],
+        friends: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Users',
+        }],
     },
     {
         toJSON: {
-            virtuals: true
+            virtuals: true,
         },
-
-        id: false
+        id: false,
     }
 );
 
-const User = model("User", userSchema);
-
-userSchema.virtual("friendCount", userSchema).get(function() {
+UserSchema.virtual('friendCount').get(function() {
     return this.friends.length;
 });
+const Users = model('Users', UserSchema);
 
-module.exports = User;
+module.exports = Users;
