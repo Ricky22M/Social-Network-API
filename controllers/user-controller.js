@@ -1,17 +1,17 @@
 const { Users, Thoughts } = require("../models");
 
 module.exports = {
-  //Get all users
+  // GET request to get all users
   getUser(req, res) {
     Users.find({})
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
-   // Get single user by ID
+   // GET request to get a single user by their ID
    getUsersById(req, res) {
     Users.findOne({ _id: req.params.userId })
     .select('-__v')
-    // return if no user is found 
+    // return error if user ID cannot be found
     .then(user => {
         if(!user) {
             res.status(404).json({message: 'No User with this ID'});
@@ -25,16 +25,17 @@ module.exports = {
     })
 },
 
-  //create a user
+  // POST request to create a user
   createUser(req, res) {
     Users.create(req.body)
       .then((user) => res.json(user))
+      // return error if user ID cannot be found
       .catch((err) => {
         console.log(err);
         return res.status(500).json(err);
       });
   },
-  //update a user
+  // PUT request to update a user
   updateUser(req, res) {
     Users.findOneAndUpdate(
       { _id: req.params.userId },
@@ -42,17 +43,18 @@ module.exports = {
       { runValidators: true, new: true }
     )
       .then((user) =>
+        // return error if user ID cannot be found
         !user
           ? res.status(404).json({ message: "No User with this ID" })
           : res.json(user)
       )
       .catch((err) => res.status(500).json(err));
   },
-  //delete a user
-  //BONUS: Remove a user's associated thoughts when deleted.
+  // DELETE request to delete a user
   deleteUser(req, res) {
     Users.findOneAndDelete({ _id: req.params.userId })
       .then((user) =>
+        // return error if user ID cannot be found
         !user
           ? res.status(404).json({ message: "No User with this ID" })
           : Thoughts.deleteMany({ _id: { $in: user.thoughts } })
@@ -60,7 +62,7 @@ module.exports = {
       .then(() => res.json({ message: "User and Thought deleted!" }))
       .catch((err) => res.status(500).json(err));
   },
-  //add a friend
+  // POST request to add a friend
   addFriend(req, res) {
     Users.findOneAndUpdate(
       { _id: req.params.userId },
@@ -68,6 +70,7 @@ module.exports = {
       { runValidators: true, new: true }
     )
       .then((user) =>
+        // return error if user ID cannot be found
         !user
           ? res.status(404).json({ message: "No User find with this ID!" })
           : res.json(user)
@@ -83,6 +86,7 @@ module.exports = {
     )
       .then(
         (user) =>
+          // return error if user ID cannot be found
           !user
             ? res.status(404).json({ message: "No User find with this ID!" })
             : res.json(user)

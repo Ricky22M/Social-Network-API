@@ -5,6 +5,12 @@
 ## Video Walkthrough
 [//]: <> (Add a video walkthrough here)
 
+## Mock Up
+![Mock up gif one](./Assets/18-nosql-homework-demo-01.gif)
+![Mock up gif two](./Assets/18-nosql-homework-demo-02.gif)
+![Mock up gif three](./Assets/18-nosql-homework-demo-03.gif)
+![Mock up gif four](./Assets/18-nosql-homework-demo-04.gif)
+
 ## Description
 An API web application used to share and interact with other users by posting about their thoughts, reacting to other users' thoughts, and creating a friends list.
 

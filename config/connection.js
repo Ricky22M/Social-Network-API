@@ -1,3 +1,4 @@
+// Establishing connection to MongoDB
 const { connect, connection } = require('mongoose');
 
 const connectionString =

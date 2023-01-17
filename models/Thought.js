@@ -3,7 +3,7 @@ const { Schema, model, Types } = require('mongoose');
 
 const moment = require('moment');
 
-//reaction schema
+// Reaction schema
 
 const reactionSchema = new Schema (
     {
@@ -34,6 +34,8 @@ const reactionSchema = new Schema (
         id: false,
     }
 );
+
+    // Thought schema
 
 const thoughtSchema = new Schema (
     {

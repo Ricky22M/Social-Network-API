@@ -1,5 +1,7 @@
 const { Schema, model, Types } = require('mongoose');
 
+    // User schema
+
 const UserSchema = new Schema 
 (
     {

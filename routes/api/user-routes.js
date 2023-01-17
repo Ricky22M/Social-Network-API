@@ -1,5 +1,7 @@
 const router = require('express').Router();
 
+    // Thought routes
+
 const {
     getUser,
     getUsersById,
