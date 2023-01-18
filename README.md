@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Video Walkthrough
-[//]: <> (Add a video walkthrough here)
+[Walkthrough Video of Application](https://drive.google.com/file/d/1-oTHaz-79TuNRnSD9jw34Wie9qcu-DGT/view)
 
 ## Mock Up
 ![Mock up gif one](./Assets/18-nosql-homework-demo-01.gif)
